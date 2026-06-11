@@ -7,6 +7,7 @@
     <AssemblyName>MagicMapper.Collection</AssemblyName>
     <PackageId>MagicMapper.Collection</PackageId>
     <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>https://github.com/zsoltsarosi/MagicMapper.Collection</PackageProjectUrl>
     <AssemblyOriginatorKeyFile>../Key.snk</AssemblyOriginatorKeyFile>
     <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
@@ -21,6 +22,7 @@
 
   <ItemGroup>
     <None Include="..\..\icon.png" Pack="true" PackagePath="" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
