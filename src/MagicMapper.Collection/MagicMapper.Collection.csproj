@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Collection Add/Remove/Update support for MagicMapper. MagicMapper.Collection adds EqualityComparison Expressions for TypeMaps to determine if Source and Destination type are equivalent to each other when mapping collections.</Description>
+    <Authors>Tyler Carlson</Authors>
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <AssemblyName>MagicMapper.Collection</AssemblyName>
+    <PackageId>MagicMapper.Collection</PackageId>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/zsoltsarosi/MagicMapper.Collection</PackageProjectUrl>
+    <AssemblyOriginatorKeyFile>../Key.snk</AssemblyOriginatorKeyFile>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <SignAssembly>true</SignAssembly>
+    <IncludeSymbols>true</IncludeSymbols>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\icon.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="[15.0.1, 17.0.0)" />
+    <PackageReference Include="MinVer" Version="2.3.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

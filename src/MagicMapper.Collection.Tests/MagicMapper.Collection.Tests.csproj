@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0</TargetFrameworks>
+    <AssemblyName>MagicMapper.Collection.Tests</AssemblyName>
+    <RootNamespace>MagicMapper.Collection</RootNamespace>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MagicMapper.Collection\MagicMapper.Collection.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="$(FluentAssertions)" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="$(TestSDKVersion)" />
+    <PackageReference Include="xunit" Version="$(xUnitVersion)" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="$(xUnitVersion)" />
+  </ItemGroup>
+
+</Project>
