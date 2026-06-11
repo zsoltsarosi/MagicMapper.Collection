@@ -12,22 +12,33 @@ jobs:
     permissions:
       id-token: write
       contents: read
+
     steps:
+
     - name: Checkout
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
+
     - name: Build and Test
       run: ./Build.ps1
       shell: pwsh
+
+    # Get a short-lived NuGet API key
+    - name: NuGet login
+      uses: NuGet/login@v1
+      id: nuget-login
+      with:
+        user: ${{ secrets.NUGET_USER }}
+
+    # Push the package
     - name: Push to NuGet
-      run: |
-        $oidcToken = (Invoke-RestMethod "$env:ACTIONS_ID_TOKEN_REQUEST_URL&audience=api://AzureADTokenExchange" -Headers @{ Authorization = "bearer $env:ACTIONS_ID_TOKEN_REQUEST_TOKEN" }).value
-        $body = "grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Atoken-exchange&subject_token_type=urn%3Aietf%3Aparams%3Aoauth%3Atoken-type%3Aid_token&subject_token=$oidcToken"
-        $env:NUGET_API_KEY = (Invoke-RestMethod -Method POST "https://api.nuget.org/v1/token" -ContentType "application/x-www-form-urlencoded" -Body $body).access_token
-        $env:NUGET_URL = "https://api.nuget.org/v3/index.json"
-        ./Push.ps1
+      env:
+        NUGET_URL: https://api.nuget.org/v3/index.json
+        NUGET_API_KEY: ${{ steps.nuget-login.outputs.NUGET_API_KEY }}
+      run: ./Push.ps1
       shell: pwsh
+
     - name: Artifacts
       uses: actions/upload-artifact@v4
       with:
