@@ -1,9 +1,8 @@
+using AutoMapper;
 using MagicMapper.EquivalencyExpression;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.Extensions.Logging.Abstractions;
 
 namespace MagicMapper.Collection
 {
@@ -16,7 +15,7 @@ namespace MagicMapper.Collection
                 new MapperConfiguration(cfg =>
                 {
                     cfg.AddCollectionMappers();
-                }, new NullLoggerFactory());
+                });
             };
             var tasks = new List<Task>();
             for (var i = 0; i < 5; i++)

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using AutoMapper;
-using AutoMapper.Extensions.ExpressionMapping.Impl;
+//using AutoMapper.Extensions.ExpressionMapping.Impl;
 
 namespace MagicMapper.EntityFramework
 {
@@ -44,13 +44,13 @@ namespace MagicMapper.EntityFramework
         /// <param name="source"></param>
         /// <param name="destType"></param>
         /// <returns></returns>
-        public static IEnumerable For<TSource>(this IQueryDataSourceInjection<TSource> source, Type destType)
-        {
-            var forMethod = source.GetType().GetMethod("For").MakeGenericMethod(destType);
-            var listType = typeof(List<>).MakeGenericType(destType);
-            var forResult = forMethod.Invoke(source, new object[] { null });
-            var enumeratedResult = Activator.CreateInstance(listType, forResult);
-            return enumeratedResult as IEnumerable;
-        }
+        //public static IEnumerable For<TSource>(this IQueryDataSourceInjection<TSource> source, Type destType)
+        //{
+        //    var forMethod = source.GetType().GetMethod("For").MakeGenericMethod(destType);
+        //    var listType = typeof(List<>).MakeGenericType(destType);
+        //    var forResult = forMethod.Invoke(source, new object[] { null });
+        //    var enumeratedResult = Activator.CreateInstance(listType, forResult);
+        //    return enumeratedResult as IEnumerable;
+        //}
     }
 }

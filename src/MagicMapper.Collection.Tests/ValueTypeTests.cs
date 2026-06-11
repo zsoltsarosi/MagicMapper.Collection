@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
 using MagicMapper.EquivalencyExpression;
-using Microsoft.Extensions.Logging.Abstractions;
+using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace MagicMapper.Collection
@@ -25,7 +21,7 @@ namespace MagicMapper.Collection
 
                 c.CreateMap<int, PersonNationality>()
                     .EqualityComparison((src, dest) => dest.NationalityCountryId == src);
-            }, new NullLoggerFactory()));
+            }));
 
             var persons = new[]
             {
