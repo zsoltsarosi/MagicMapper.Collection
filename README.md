@@ -52,3 +52,5 @@ cfg.CreateMap<OrderItemDto, OrderItem>()
 ## License
 
 MIT
+
+AutoMapper is Copyright © 2009 [Jimmy Bogard](https://jimmybogard.com/) and other contributors under the MIT license.
