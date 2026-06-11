@@ -2,10 +2,11 @@
 
   <PropertyGroup>
     <Description>Collection updating support for EntityFramework with MagicMapper. Extends DBSet&lt;T&gt; with Persist&lt;TDto&gt;().InsertUpdate(dto) and Persist&lt;TDto&gt;().Delete(dto).  Will find the matching object and will Insert/Update/Delete.</Description>
-    <Authors>Tyler Carlson</Authors>
+    <Authors>Tyler Carlson, Zsolt Sarosi</Authors>
     <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
     <AssemblyName>MagicMapper.Collection.EntityFramework</AssemblyName>
     <PackageId>MagicMapper.Collection.EntityFramework</PackageId>
+    <IsPackable>false</IsPackable>
     <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://github.com/zsoltsarosi/MagicMapper.Collection</PackageProjectUrl>
     <AssemblyOriginatorKeyFile>../Key.snk</AssemblyOriginatorKeyFile>

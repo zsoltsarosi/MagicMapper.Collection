@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>Collection Add/Remove/Update support for MagicMapper. MagicMapper.Collection adds EqualityComparison Expressions for TypeMaps to determine if Source and Destination type are equivalent to each other when mapping collections.</Description>
-    <Authors>Tyler Carlson</Authors>
+    <Authors>Tyler Carlson, Zsolt Sarosi</Authors>
     <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
     <AssemblyName>MagicMapper.Collection</AssemblyName>
     <PackageId>MagicMapper.Collection</PackageId>

@@ -9,6 +9,9 @@ jobs:
     strategy:
       fail-fast: false
     runs-on: windows-2022
+    permissions:
+      id-token: write
+      contents: read
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -18,13 +21,15 @@ jobs:
       run: ./Build.ps1
       shell: pwsh
     - name: Push to NuGet
-      env:
-        NUGET_URL: https://api.nuget.org/v3/index.json
-        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-      run: ./Push.ps1
+      run: |
+        $oidcToken = (Invoke-RestMethod "$env:ACTIONS_ID_TOKEN_REQUEST_URL&audience=api://AzureADTokenExchange" -Headers @{ Authorization = "bearer $env:ACTIONS_ID_TOKEN_REQUEST_TOKEN" }).value
+        $body = "grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Atoken-exchange&subject_token_type=urn%3Aietf%3Aparams%3Aoauth%3Atoken-type%3Aid_token&subject_token=$oidcToken"
+        $env:NUGET_API_KEY = (Invoke-RestMethod -Method POST "https://api.nuget.org/v1/token" -ContentType "application/x-www-form-urlencoded" -Body $body).access_token
+        $env:NUGET_URL = "https://api.nuget.org/v3/index.json"
+        ./Push.ps1
       shell: pwsh
     - name: Artifacts
       uses: actions/upload-artifact@v4
       with:
         name: artifacts
-        path: artifacts/**/* 
+        path: artifacts/**/*
