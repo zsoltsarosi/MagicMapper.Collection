@@ -14,7 +14,6 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <SignAssembly>true</SignAssembly>
     <IncludeSymbols>true</IncludeSymbols>
-    <MinVerTagPrefix>v</MinVerTagPrefix>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <Deterministic>true</Deterministic>
